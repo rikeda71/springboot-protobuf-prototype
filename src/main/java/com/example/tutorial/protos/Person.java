@@ -54,25 +54,25 @@ private static final long serialVersionUID = 0L;
             break;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
+
             name_ = s;
             break;
           }
           case 16: {
-            bitField0_ |= 0x00000002;
+
             id_ = input.readInt32();
             break;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
+
             email_ = s;
             break;
           }
           case 34: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
               phones_ = new java.util.ArrayList<com.example.tutorial.protos.Person.PhoneNumber>();
-              mutable_bitField0_ |= 0x00000008;
+              mutable_bitField0_ |= 0x00000001;
             }
             phones_.add(
                 input.readMessage(com.example.tutorial.protos.Person.PhoneNumber.parser(), extensionRegistry));
@@ -95,7 +95,7 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
         phones_ = java.util.Collections.unmodifiableList(phones_);
       }
       this.unknownFields = unknownFields.build();
@@ -237,34 +237,24 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string number = 1;</code>
-     * @return Whether the number field is set.
-     */
-    boolean hasNumber();
-    /**
-     * <code>optional string number = 1;</code>
+     * <code>string number = 1;</code>
      * @return The number.
      */
     java.lang.String getNumber();
     /**
-     * <code>optional string number = 1;</code>
+     * <code>string number = 1;</code>
      * @return The bytes for number.
      */
     com.google.protobuf.ByteString
         getNumberBytes();
 
     /**
-     * <code>optional .tutorial.Person.PhoneType type = 2;</code>
-     * @return Whether the type field is set.
-     */
-    boolean hasType();
-    /**
-     * <code>optional .tutorial.Person.PhoneType type = 2;</code>
+     * <code>.tutorial.Person.PhoneType type = 2;</code>
      * @return The enum numeric value on the wire for type.
      */
     int getTypeValue();
     /**
-     * <code>optional .tutorial.Person.PhoneType type = 2;</code>
+     * <code>.tutorial.Person.PhoneType type = 2;</code>
      * @return The type.
      */
     com.example.tutorial.protos.Person.PhoneType getType();
@@ -306,7 +296,6 @@ private static final long serialVersionUID = 0L;
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -319,13 +308,13 @@ private static final long serialVersionUID = 0L;
               break;
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000001;
+
               number_ = s;
               break;
             }
             case 16: {
               int rawValue = input.readEnum();
-              bitField0_ |= 0x00000002;
+
               type_ = rawValue;
               break;
             }
@@ -363,19 +352,10 @@ private static final long serialVersionUID = 0L;
               com.example.tutorial.protos.Person.PhoneNumber.class, com.example.tutorial.protos.Person.PhoneNumber.Builder.class);
     }
 
-    private int bitField0_;
     public static final int NUMBER_FIELD_NUMBER = 1;
     private volatile java.lang.Object number_;
     /**
-     * <code>optional string number = 1;</code>
-     * @return Whether the number field is set.
-     */
-    @java.lang.Override
-    public boolean hasNumber() {
-      return ((bitField0_ & 0x00000001) != 0);
-    }
-    /**
-     * <code>optional string number = 1;</code>
+     * <code>string number = 1;</code>
      * @return The number.
      */
     @java.lang.Override
@@ -392,7 +372,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>optional string number = 1;</code>
+     * <code>string number = 1;</code>
      * @return The bytes for number.
      */
     @java.lang.Override
@@ -413,21 +393,14 @@ private static final long serialVersionUID = 0L;
     public static final int TYPE_FIELD_NUMBER = 2;
     private int type_;
     /**
-     * <code>optional .tutorial.Person.PhoneType type = 2;</code>
-     * @return Whether the type field is set.
-     */
-    @java.lang.Override public boolean hasType() {
-      return ((bitField0_ & 0x00000002) != 0);
-    }
-    /**
-     * <code>optional .tutorial.Person.PhoneType type = 2;</code>
+     * <code>.tutorial.Person.PhoneType type = 2;</code>
      * @return The enum numeric value on the wire for type.
      */
     @java.lang.Override public int getTypeValue() {
       return type_;
     }
     /**
-     * <code>optional .tutorial.Person.PhoneType type = 2;</code>
+     * <code>.tutorial.Person.PhoneType type = 2;</code>
      * @return The type.
      */
     @java.lang.Override public com.example.tutorial.protos.Person.PhoneType getType() {
@@ -450,10 +423,10 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) != 0)) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(number_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, number_);
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (type_ != com.example.tutorial.protos.Person.PhoneType.MOBILE.getNumber()) {
         output.writeEnum(2, type_);
       }
       unknownFields.writeTo(output);
@@ -465,10 +438,10 @@ private static final long serialVersionUID = 0L;
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) != 0)) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(number_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, number_);
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (type_ != com.example.tutorial.protos.Person.PhoneType.MOBILE.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, type_);
       }
@@ -487,15 +460,9 @@ private static final long serialVersionUID = 0L;
       }
       com.example.tutorial.protos.Person.PhoneNumber other = (com.example.tutorial.protos.Person.PhoneNumber) obj;
 
-      if (hasNumber() != other.hasNumber()) return false;
-      if (hasNumber()) {
-        if (!getNumber()
-            .equals(other.getNumber())) return false;
-      }
-      if (hasType() != other.hasType()) return false;
-      if (hasType()) {
-        if (type_ != other.type_) return false;
-      }
+      if (!getNumber()
+          .equals(other.getNumber())) return false;
+      if (type_ != other.type_) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -507,14 +474,10 @@ private static final long serialVersionUID = 0L;
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasNumber()) {
-        hash = (37 * hash) + NUMBER_FIELD_NUMBER;
-        hash = (53 * hash) + getNumber().hashCode();
-      }
-      if (hasType()) {
-        hash = (37 * hash) + TYPE_FIELD_NUMBER;
-        hash = (53 * hash) + type_;
-      }
+      hash = (37 * hash) + NUMBER_FIELD_NUMBER;
+      hash = (53 * hash) + getNumber().hashCode();
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -649,9 +612,9 @@ private static final long serialVersionUID = 0L;
       public Builder clear() {
         super.clear();
         number_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
+
         type_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
+
         return this;
       }
 
@@ -678,17 +641,8 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.example.tutorial.protos.Person.PhoneNumber buildPartial() {
         com.example.tutorial.protos.Person.PhoneNumber result = new com.example.tutorial.protos.Person.PhoneNumber(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          to_bitField0_ |= 0x00000001;
-        }
         result.number_ = number_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          to_bitField0_ |= 0x00000002;
-        }
         result.type_ = type_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -737,13 +691,12 @@ private static final long serialVersionUID = 0L;
 
       public Builder mergeFrom(com.example.tutorial.protos.Person.PhoneNumber other) {
         if (other == com.example.tutorial.protos.Person.PhoneNumber.getDefaultInstance()) return this;
-        if (other.hasNumber()) {
-          bitField0_ |= 0x00000001;
+        if (!other.getNumber().isEmpty()) {
           number_ = other.number_;
           onChanged();
         }
-        if (other.hasType()) {
-          setType(other.getType());
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -773,18 +726,10 @@ private static final long serialVersionUID = 0L;
         }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object number_ = "";
       /**
-       * <code>optional string number = 1;</code>
-       * @return Whether the number field is set.
-       */
-      public boolean hasNumber() {
-        return ((bitField0_ & 0x00000001) != 0);
-      }
-      /**
-       * <code>optional string number = 1;</code>
+       * <code>string number = 1;</code>
        * @return The number.
        */
       public java.lang.String getNumber() {
@@ -800,7 +745,7 @@ private static final long serialVersionUID = 0L;
         }
       }
       /**
-       * <code>optional string number = 1;</code>
+       * <code>string number = 1;</code>
        * @return The bytes for number.
        */
       public com.google.protobuf.ByteString
@@ -817,7 +762,7 @@ private static final long serialVersionUID = 0L;
         }
       }
       /**
-       * <code>optional string number = 1;</code>
+       * <code>string number = 1;</code>
        * @param value The number to set.
        * @return This builder for chaining.
        */
@@ -826,23 +771,23 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000001;
+  
         number_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string number = 1;</code>
+       * <code>string number = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearNumber() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         number_ = getDefaultInstance().getNumber();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string number = 1;</code>
+       * <code>string number = 1;</code>
        * @param value The bytes for number to set.
        * @return This builder for chaining.
        */
@@ -852,7 +797,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        bitField0_ |= 0x00000001;
+        
         number_ = value;
         onChanged();
         return this;
@@ -860,32 +805,25 @@ private static final long serialVersionUID = 0L;
 
       private int type_ = 0;
       /**
-       * <code>optional .tutorial.Person.PhoneType type = 2;</code>
-       * @return Whether the type field is set.
-       */
-      @java.lang.Override public boolean hasType() {
-        return ((bitField0_ & 0x00000002) != 0);
-      }
-      /**
-       * <code>optional .tutorial.Person.PhoneType type = 2;</code>
+       * <code>.tutorial.Person.PhoneType type = 2;</code>
        * @return The enum numeric value on the wire for type.
        */
       @java.lang.Override public int getTypeValue() {
         return type_;
       }
       /**
-       * <code>optional .tutorial.Person.PhoneType type = 2;</code>
+       * <code>.tutorial.Person.PhoneType type = 2;</code>
        * @param value The enum numeric value on the wire for type to set.
        * @return This builder for chaining.
        */
       public Builder setTypeValue(int value) {
-        bitField0_ |= 0x00000002;
+        
         type_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional .tutorial.Person.PhoneType type = 2;</code>
+       * <code>.tutorial.Person.PhoneType type = 2;</code>
        * @return The type.
        */
       @java.lang.Override
@@ -895,7 +833,7 @@ private static final long serialVersionUID = 0L;
         return result == null ? com.example.tutorial.protos.Person.PhoneType.UNRECOGNIZED : result;
       }
       /**
-       * <code>optional .tutorial.Person.PhoneType type = 2;</code>
+       * <code>.tutorial.Person.PhoneType type = 2;</code>
        * @param value The type to set.
        * @return This builder for chaining.
        */
@@ -903,17 +841,17 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000002;
+        
         type_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
-       * <code>optional .tutorial.Person.PhoneType type = 2;</code>
+       * <code>.tutorial.Person.PhoneType type = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearType() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         type_ = 0;
         onChanged();
         return this;
@@ -971,19 +909,10 @@ private static final long serialVersionUID = 0L;
 
   }
 
-  private int bitField0_;
   public static final int NAME_FIELD_NUMBER = 1;
   private volatile java.lang.Object name_;
   /**
-   * <code>optional string name = 1;</code>
-   * @return Whether the name field is set.
-   */
-  @java.lang.Override
-  public boolean hasName() {
-    return ((bitField0_ & 0x00000001) != 0);
-  }
-  /**
-   * <code>optional string name = 1;</code>
+   * <code>string name = 1;</code>
    * @return The name.
    */
   @java.lang.Override
@@ -1000,7 +929,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>optional string name = 1;</code>
+   * <code>string name = 1;</code>
    * @return The bytes for name.
    */
   @java.lang.Override
@@ -1021,15 +950,7 @@ private static final long serialVersionUID = 0L;
   public static final int ID_FIELD_NUMBER = 2;
   private int id_;
   /**
-   * <code>optional int32 id = 2;</code>
-   * @return Whether the id field is set.
-   */
-  @java.lang.Override
-  public boolean hasId() {
-    return ((bitField0_ & 0x00000002) != 0);
-  }
-  /**
-   * <code>optional int32 id = 2;</code>
+   * <code>int32 id = 2;</code>
    * @return The id.
    */
   @java.lang.Override
@@ -1040,15 +961,7 @@ private static final long serialVersionUID = 0L;
   public static final int EMAIL_FIELD_NUMBER = 3;
   private volatile java.lang.Object email_;
   /**
-   * <code>optional string email = 3;</code>
-   * @return Whether the email field is set.
-   */
-  @java.lang.Override
-  public boolean hasEmail() {
-    return ((bitField0_ & 0x00000004) != 0);
-  }
-  /**
-   * <code>optional string email = 3;</code>
+   * <code>string email = 3;</code>
    * @return The email.
    */
   @java.lang.Override
@@ -1065,7 +978,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>optional string email = 3;</code>
+   * <code>string email = 3;</code>
    * @return The bytes for email.
    */
   @java.lang.Override
@@ -1137,13 +1050,13 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (((bitField0_ & 0x00000001) != 0)) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
     }
-    if (((bitField0_ & 0x00000002) != 0)) {
+    if (id_ != 0) {
       output.writeInt32(2, id_);
     }
-    if (((bitField0_ & 0x00000004) != 0)) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(email_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, email_);
     }
     for (int i = 0; i < phones_.size(); i++) {
@@ -1158,14 +1071,14 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (((bitField0_ & 0x00000001) != 0)) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
     }
-    if (((bitField0_ & 0x00000002) != 0)) {
+    if (id_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(2, id_);
     }
-    if (((bitField0_ & 0x00000004) != 0)) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(email_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, email_);
     }
     for (int i = 0; i < phones_.size(); i++) {
@@ -1187,21 +1100,12 @@ private static final long serialVersionUID = 0L;
     }
     com.example.tutorial.protos.Person other = (com.example.tutorial.protos.Person) obj;
 
-    if (hasName() != other.hasName()) return false;
-    if (hasName()) {
-      if (!getName()
-          .equals(other.getName())) return false;
-    }
-    if (hasId() != other.hasId()) return false;
-    if (hasId()) {
-      if (getId()
-          != other.getId()) return false;
-    }
-    if (hasEmail() != other.hasEmail()) return false;
-    if (hasEmail()) {
-      if (!getEmail()
-          .equals(other.getEmail())) return false;
-    }
+    if (!getName()
+        .equals(other.getName())) return false;
+    if (getId()
+        != other.getId()) return false;
+    if (!getEmail()
+        .equals(other.getEmail())) return false;
     if (!getPhonesList()
         .equals(other.getPhonesList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -1215,18 +1119,12 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (hasName()) {
-      hash = (37 * hash) + NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getName().hashCode();
-    }
-    if (hasId()) {
-      hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId();
-    }
-    if (hasEmail()) {
-      hash = (37 * hash) + EMAIL_FIELD_NUMBER;
-      hash = (53 * hash) + getEmail().hashCode();
-    }
+    hash = (37 * hash) + NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getName().hashCode();
+    hash = (37 * hash) + ID_FIELD_NUMBER;
+    hash = (53 * hash) + getId();
+    hash = (37 * hash) + EMAIL_FIELD_NUMBER;
+    hash = (53 * hash) + getEmail().hashCode();
     if (getPhonesCount() > 0) {
       hash = (37 * hash) + PHONES_FIELD_NUMBER;
       hash = (53 * hash) + getPhonesList().hashCode();
@@ -1366,14 +1264,14 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       name_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
+
       id_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000002);
+
       email_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
+
       if (phonesBuilder_ == null) {
         phones_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
         phonesBuilder_.clear();
       }
@@ -1404,29 +1302,18 @@ private static final long serialVersionUID = 0L;
     public com.example.tutorial.protos.Person buildPartial() {
       com.example.tutorial.protos.Person result = new com.example.tutorial.protos.Person(this);
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        to_bitField0_ |= 0x00000001;
-      }
       result.name_ = name_;
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.id_ = id_;
-        to_bitField0_ |= 0x00000002;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        to_bitField0_ |= 0x00000004;
-      }
+      result.id_ = id_;
       result.email_ = email_;
       if (phonesBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000001) != 0)) {
           phones_ = java.util.Collections.unmodifiableList(phones_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.phones_ = phones_;
       } else {
         result.phones_ = phonesBuilder_.build();
       }
-      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
@@ -1475,16 +1362,14 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.example.tutorial.protos.Person other) {
       if (other == com.example.tutorial.protos.Person.getDefaultInstance()) return this;
-      if (other.hasName()) {
-        bitField0_ |= 0x00000001;
+      if (!other.getName().isEmpty()) {
         name_ = other.name_;
         onChanged();
       }
-      if (other.hasId()) {
+      if (other.getId() != 0) {
         setId(other.getId());
       }
-      if (other.hasEmail()) {
-        bitField0_ |= 0x00000004;
+      if (!other.getEmail().isEmpty()) {
         email_ = other.email_;
         onChanged();
       }
@@ -1492,7 +1377,7 @@ private static final long serialVersionUID = 0L;
         if (!other.phones_.isEmpty()) {
           if (phones_.isEmpty()) {
             phones_ = other.phones_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
             ensurePhonesIsMutable();
             phones_.addAll(other.phones_);
@@ -1505,7 +1390,7 @@ private static final long serialVersionUID = 0L;
             phonesBuilder_.dispose();
             phonesBuilder_ = null;
             phones_ = other.phones_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000001);
             phonesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getPhonesFieldBuilder() : null;
@@ -1546,14 +1431,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object name_ = "";
     /**
-     * <code>optional string name = 1;</code>
-     * @return Whether the name field is set.
-     */
-    public boolean hasName() {
-      return ((bitField0_ & 0x00000001) != 0);
-    }
-    /**
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      * @return The name.
      */
     public java.lang.String getName() {
@@ -1569,7 +1447,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
@@ -1586,7 +1464,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      * @param value The name to set.
      * @return This builder for chaining.
      */
@@ -1595,23 +1473,23 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000001;
+  
       name_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      
       name_ = getDefaultInstance().getName();
       onChanged();
       return this;
     }
     /**
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      * @param value The bytes for name to set.
      * @return This builder for chaining.
      */
@@ -1621,7 +1499,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      
       name_ = value;
       onChanged();
       return this;
@@ -1629,15 +1507,7 @@ private static final long serialVersionUID = 0L;
 
     private int id_ ;
     /**
-     * <code>optional int32 id = 2;</code>
-     * @return Whether the id field is set.
-     */
-    @java.lang.Override
-    public boolean hasId() {
-      return ((bitField0_ & 0x00000002) != 0);
-    }
-    /**
-     * <code>optional int32 id = 2;</code>
+     * <code>int32 id = 2;</code>
      * @return The id.
      */
     @java.lang.Override
@@ -1645,22 +1515,22 @@ private static final long serialVersionUID = 0L;
       return id_;
     }
     /**
-     * <code>optional int32 id = 2;</code>
+     * <code>int32 id = 2;</code>
      * @param value The id to set.
      * @return This builder for chaining.
      */
     public Builder setId(int value) {
-      bitField0_ |= 0x00000002;
+      
       id_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional int32 id = 2;</code>
+     * <code>int32 id = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      
       id_ = 0;
       onChanged();
       return this;
@@ -1668,14 +1538,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object email_ = "";
     /**
-     * <code>optional string email = 3;</code>
-     * @return Whether the email field is set.
-     */
-    public boolean hasEmail() {
-      return ((bitField0_ & 0x00000004) != 0);
-    }
-    /**
-     * <code>optional string email = 3;</code>
+     * <code>string email = 3;</code>
      * @return The email.
      */
     public java.lang.String getEmail() {
@@ -1691,7 +1554,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>optional string email = 3;</code>
+     * <code>string email = 3;</code>
      * @return The bytes for email.
      */
     public com.google.protobuf.ByteString
@@ -1708,7 +1571,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>optional string email = 3;</code>
+     * <code>string email = 3;</code>
      * @param value The email to set.
      * @return This builder for chaining.
      */
@@ -1717,23 +1580,23 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  
       email_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional string email = 3;</code>
+     * <code>string email = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearEmail() {
-      bitField0_ = (bitField0_ & ~0x00000004);
+      
       email_ = getDefaultInstance().getEmail();
       onChanged();
       return this;
     }
     /**
-     * <code>optional string email = 3;</code>
+     * <code>string email = 3;</code>
      * @param value The bytes for email to set.
      * @return This builder for chaining.
      */
@@ -1743,7 +1606,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      
       email_ = value;
       onChanged();
       return this;
@@ -1752,9 +1615,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.example.tutorial.protos.Person.PhoneNumber> phones_ =
       java.util.Collections.emptyList();
     private void ensurePhonesIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000001) != 0)) {
         phones_ = new java.util.ArrayList<com.example.tutorial.protos.Person.PhoneNumber>(phones_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000001;
        }
     }
 
@@ -1904,7 +1767,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearPhones() {
       if (phonesBuilder_ == null) {
         phones_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
       } else {
         phonesBuilder_.clear();
@@ -1981,7 +1844,7 @@ private static final long serialVersionUID = 0L;
         phonesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.example.tutorial.protos.Person.PhoneNumber, com.example.tutorial.protos.Person.PhoneNumber.Builder, com.example.tutorial.protos.Person.PhoneNumberOrBuilder>(
                 phones_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),
                 isClean());
         phones_ = null;
