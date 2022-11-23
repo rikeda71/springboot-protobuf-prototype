@@ -29,6 +29,56 @@ public final class AddressBookProtos {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_tutorial_AddressBook_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_tutorial_GetPersonRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_tutorial_GetPersonRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_tutorial_GetPersonResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_tutorial_GetPersonResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_tutorial_AddPersonRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_tutorial_AddPersonRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_tutorial_AddPersonResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_tutorial_AddPersonResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_tutorial_UpdatePersonRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_tutorial_UpdatePersonRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_tutorial_UpdatePersonResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_tutorial_UpdatePersonResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_tutorial_DeletePersonRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_tutorial_DeletePersonRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_tutorial_DeletePersonResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_tutorial_DeletePersonResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_tutorial_GetAddressRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_tutorial_GetAddressRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_tutorial_GetAddressResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_tutorial_GetAddressResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -38,17 +88,32 @@ public final class AddressBookProtos {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021addressbook.proto\022\010tutorial\"\234\002\n\006Person" +
-      "\022\021\n\004name\030\001 \001(\tH\000\210\001\001\022\017\n\002id\030\002 \001(\005H\001\210\001\001\022\022\n\005" +
-      "email\030\003 \001(\tH\002\210\001\001\022,\n\006phones\030\004 \003(\0132\034.tutor" +
-      "ial.Person.PhoneNumber\032e\n\013PhoneNumber\022\023\n" +
-      "\006number\030\001 \001(\tH\000\210\001\001\022-\n\004type\030\002 \001(\0162\032.tutor" +
-      "ial.Person.PhoneTypeH\001\210\001\001B\t\n\007_numberB\007\n\005" +
-      "_type\"+\n\tPhoneType\022\n\n\006MOBILE\020\000\022\010\n\004HOME\020\001" +
-      "\022\010\n\004WORK\020\002B\007\n\005_nameB\005\n\003_idB\010\n\006_email\"/\n\013" +
-      "AddressBook\022 \n\006people\030\001 \003(\0132\020.tutorial.P" +
-      "ersonB2\n\033com.example.tutorial.protosB\021Ad" +
-      "dressBookProtosP\001b\006proto3"
+      "\n\021addressbook.proto\022\010tutorial\"\325\001\n\006Person" +
+      "\022\014\n\004name\030\001 \001(\t\022\n\n\002id\030\002 \001(\005\022\r\n\005email\030\003 \001(" +
+      "\t\022,\n\006phones\030\004 \003(\0132\034.tutorial.Person.Phon" +
+      "eNumber\032G\n\013PhoneNumber\022\016\n\006number\030\001 \001(\t\022(" +
+      "\n\004type\030\002 \001(\0162\032.tutorial.Person.PhoneType" +
+      "\"+\n\tPhoneType\022\n\n\006MOBILE\020\000\022\010\n\004HOME\020\001\022\010\n\004W" +
+      "ORK\020\002\"/\n\013AddressBook\022 \n\006people\030\001 \003(\0132\020.t" +
+      "utorial.Person\"\036\n\020GetPersonRequest\022\n\n\002id" +
+      "\030\001 \001(\005\"_\n\021GetPersonResponse\022(\n\006status\030\001 " +
+      "\001(\0162\030.tutorial.ResponseStatus\022 \n\006person\030" +
+      "\002 \001(\0132\020.tutorial.Person\"4\n\020AddPersonRequ" +
+      "est\022 \n\006person\030\001 \001(\0132\020.tutorial.Person\"=\n" +
+      "\021AddPersonResponse\022(\n\006status\030\001 \001(\0162\030.tut" +
+      "orial.ResponseStatus\"7\n\023UpdatePersonRequ" +
+      "est\022 \n\006person\030\001 \001(\0132\020.tutorial.Person\"@\n" +
+      "\024UpdatePersonResponse\022(\n\006status\030\001 \001(\0162\030." +
+      "tutorial.ResponseStatus\"!\n\023DeletePersonR" +
+      "equest\022\n\n\002id\030\001 \001(\005\"@\n\024DeletePersonRespon" +
+      "se\022(\n\006status\030\001 \001(\0162\030.tutorial.ResponseSt" +
+      "atus\"\037\n\021GetAddressRequest\022\n\n\002id\030\001 \001(\005\"j\n" +
+      "\022GetAddressResponse\022(\n\006status\030\001 \001(\0162\030.tu" +
+      "torial.ResponseStatus\022*\n\013addressBook\030\002 \001" +
+      "(\0132\025.tutorial.AddressBook*)\n\016ResponseSta" +
+      "tus\022\013\n\007SUCCESS\020\000\022\n\n\006FAILED\020\001B2\n\033com.exam" +
+      "ple.tutorial.protosB\021AddressBookProtosP\001" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -59,19 +124,79 @@ public final class AddressBookProtos {
     internal_static_tutorial_Person_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_tutorial_Person_descriptor,
-        new java.lang.String[] { "Name", "Id", "Email", "Phones", "Name", "Id", "Email", });
+        new java.lang.String[] { "Name", "Id", "Email", "Phones", });
     internal_static_tutorial_Person_PhoneNumber_descriptor =
       internal_static_tutorial_Person_descriptor.getNestedTypes().get(0);
     internal_static_tutorial_Person_PhoneNumber_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_tutorial_Person_PhoneNumber_descriptor,
-        new java.lang.String[] { "Number", "Type", "Number", "Type", });
+        new java.lang.String[] { "Number", "Type", });
     internal_static_tutorial_AddressBook_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_tutorial_AddressBook_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_tutorial_AddressBook_descriptor,
         new java.lang.String[] { "People", });
+    internal_static_tutorial_GetPersonRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_tutorial_GetPersonRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_tutorial_GetPersonRequest_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_tutorial_GetPersonResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_tutorial_GetPersonResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_tutorial_GetPersonResponse_descriptor,
+        new java.lang.String[] { "Status", "Person", });
+    internal_static_tutorial_AddPersonRequest_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_tutorial_AddPersonRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_tutorial_AddPersonRequest_descriptor,
+        new java.lang.String[] { "Person", });
+    internal_static_tutorial_AddPersonResponse_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_tutorial_AddPersonResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_tutorial_AddPersonResponse_descriptor,
+        new java.lang.String[] { "Status", });
+    internal_static_tutorial_UpdatePersonRequest_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_tutorial_UpdatePersonRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_tutorial_UpdatePersonRequest_descriptor,
+        new java.lang.String[] { "Person", });
+    internal_static_tutorial_UpdatePersonResponse_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_tutorial_UpdatePersonResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_tutorial_UpdatePersonResponse_descriptor,
+        new java.lang.String[] { "Status", });
+    internal_static_tutorial_DeletePersonRequest_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_tutorial_DeletePersonRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_tutorial_DeletePersonRequest_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_tutorial_DeletePersonResponse_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_tutorial_DeletePersonResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_tutorial_DeletePersonResponse_descriptor,
+        new java.lang.String[] { "Status", });
+    internal_static_tutorial_GetAddressRequest_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_tutorial_GetAddressRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_tutorial_GetAddressRequest_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_tutorial_GetAddressResponse_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_tutorial_GetAddressResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_tutorial_GetAddressResponse_descriptor,
+        new java.lang.String[] { "Status", "AddressBook", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
