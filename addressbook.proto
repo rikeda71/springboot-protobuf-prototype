@@ -83,5 +83,5 @@ message GetAddressRequest {
 // アドレス帳を取得するレスポンス
 message GetAddressResponse {
   ResponseStatus status = 1;
-  AddressBook addressBook = 2;
+  repeated AddressBook addressBook = 2;
 }
