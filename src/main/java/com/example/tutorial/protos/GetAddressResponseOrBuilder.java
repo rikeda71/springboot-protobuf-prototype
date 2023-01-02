@@ -19,17 +19,26 @@ public interface GetAddressResponseOrBuilder extends
   com.example.tutorial.protos.ResponseStatus getStatus();
 
   /**
-   * <code>.tutorial.AddressBook addressBook = 2;</code>
-   * @return Whether the addressBook field is set.
+   * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
    */
-  boolean hasAddressBook();
+  java.util.List<com.example.tutorial.protos.AddressBook> 
+      getAddressBookList();
   /**
-   * <code>.tutorial.AddressBook addressBook = 2;</code>
-   * @return The addressBook.
+   * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
    */
-  com.example.tutorial.protos.AddressBook getAddressBook();
+  com.example.tutorial.protos.AddressBook getAddressBook(int index);
   /**
-   * <code>.tutorial.AddressBook addressBook = 2;</code>
+   * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
    */
-  com.example.tutorial.protos.AddressBookOrBuilder getAddressBookOrBuilder();
+  int getAddressBookCount();
+  /**
+   * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
+   */
+  java.util.List<? extends com.example.tutorial.protos.AddressBookOrBuilder> 
+      getAddressBookOrBuilderList();
+  /**
+   * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
+   */
+  com.example.tutorial.protos.AddressBookOrBuilder getAddressBookOrBuilder(
+      int index);
 }

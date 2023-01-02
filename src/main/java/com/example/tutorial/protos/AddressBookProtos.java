@@ -109,7 +109,7 @@ public final class AddressBookProtos {
       "se\022(\n\006status\030\001 \001(\0162\030.tutorial.ResponseSt" +
       "atus\"\037\n\021GetAddressRequest\022\n\n\002id\030\001 \001(\005\"j\n" +
       "\022GetAddressResponse\022(\n\006status\030\001 \001(\0162\030.tu" +
-      "torial.ResponseStatus\022*\n\013addressBook\030\002 \001" +
+      "torial.ResponseStatus\022*\n\013addressBook\030\002 \003" +
       "(\0132\025.tutorial.AddressBook*)\n\016ResponseSta" +
       "tus\022\013\n\007SUCCESS\020\000\022\n\n\006FAILED\020\001B2\n\033com.exam" +
       "ple.tutorial.protosB\021AddressBookProtosP\001" +

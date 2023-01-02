@@ -21,6 +21,7 @@ private static final long serialVersionUID = 0L;
   }
   private GetAddressResponse() {
     status_ = 0;
+    addressBook_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -43,6 +44,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -60,16 +62,12 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 18: {
-            com.example.tutorial.protos.AddressBook.Builder subBuilder = null;
-            if (addressBook_ != null) {
-              subBuilder = addressBook_.toBuilder();
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              addressBook_ = new java.util.ArrayList<com.example.tutorial.protos.AddressBook>();
+              mutable_bitField0_ |= 0x00000001;
             }
-            addressBook_ = input.readMessage(com.example.tutorial.protos.AddressBook.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(addressBook_);
-              addressBook_ = subBuilder.buildPartial();
-            }
-
+            addressBook_.add(
+                input.readMessage(com.example.tutorial.protos.AddressBook.parser(), extensionRegistry));
             break;
           }
           default: {
@@ -89,6 +87,9 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        addressBook_ = java.util.Collections.unmodifiableList(addressBook_);
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -126,29 +127,43 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ADDRESSBOOK_FIELD_NUMBER = 2;
-  private com.example.tutorial.protos.AddressBook addressBook_;
+  private java.util.List<com.example.tutorial.protos.AddressBook> addressBook_;
   /**
-   * <code>.tutorial.AddressBook addressBook = 2;</code>
-   * @return Whether the addressBook field is set.
+   * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
    */
   @java.lang.Override
-  public boolean hasAddressBook() {
-    return addressBook_ != null;
+  public java.util.List<com.example.tutorial.protos.AddressBook> getAddressBookList() {
+    return addressBook_;
   }
   /**
-   * <code>.tutorial.AddressBook addressBook = 2;</code>
-   * @return The addressBook.
+   * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
    */
   @java.lang.Override
-  public com.example.tutorial.protos.AddressBook getAddressBook() {
-    return addressBook_ == null ? com.example.tutorial.protos.AddressBook.getDefaultInstance() : addressBook_;
+  public java.util.List<? extends com.example.tutorial.protos.AddressBookOrBuilder> 
+      getAddressBookOrBuilderList() {
+    return addressBook_;
   }
   /**
-   * <code>.tutorial.AddressBook addressBook = 2;</code>
+   * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
    */
   @java.lang.Override
-  public com.example.tutorial.protos.AddressBookOrBuilder getAddressBookOrBuilder() {
-    return getAddressBook();
+  public int getAddressBookCount() {
+    return addressBook_.size();
+  }
+  /**
+   * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
+   */
+  @java.lang.Override
+  public com.example.tutorial.protos.AddressBook getAddressBook(int index) {
+    return addressBook_.get(index);
+  }
+  /**
+   * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
+   */
+  @java.lang.Override
+  public com.example.tutorial.protos.AddressBookOrBuilder getAddressBookOrBuilder(
+      int index) {
+    return addressBook_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -168,8 +183,8 @@ private static final long serialVersionUID = 0L;
     if (status_ != com.example.tutorial.protos.ResponseStatus.SUCCESS.getNumber()) {
       output.writeEnum(1, status_);
     }
-    if (addressBook_ != null) {
-      output.writeMessage(2, getAddressBook());
+    for (int i = 0; i < addressBook_.size(); i++) {
+      output.writeMessage(2, addressBook_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -184,9 +199,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, status_);
     }
-    if (addressBook_ != null) {
+    for (int i = 0; i < addressBook_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, getAddressBook());
+        .computeMessageSize(2, addressBook_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -204,11 +219,8 @@ private static final long serialVersionUID = 0L;
     com.example.tutorial.protos.GetAddressResponse other = (com.example.tutorial.protos.GetAddressResponse) obj;
 
     if (status_ != other.status_) return false;
-    if (hasAddressBook() != other.hasAddressBook()) return false;
-    if (hasAddressBook()) {
-      if (!getAddressBook()
-          .equals(other.getAddressBook())) return false;
-    }
+    if (!getAddressBookList()
+        .equals(other.getAddressBookList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -222,9 +234,9 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + STATUS_FIELD_NUMBER;
     hash = (53 * hash) + status_;
-    if (hasAddressBook()) {
+    if (getAddressBookCount() > 0) {
       hash = (37 * hash) + ADDRESSBOOK_FIELD_NUMBER;
-      hash = (53 * hash) + getAddressBook().hashCode();
+      hash = (53 * hash) + getAddressBookList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -358,6 +370,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getAddressBookFieldBuilder();
       }
     }
     @java.lang.Override
@@ -366,10 +379,10 @@ private static final long serialVersionUID = 0L;
       status_ = 0;
 
       if (addressBookBuilder_ == null) {
-        addressBook_ = null;
+        addressBook_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
-        addressBook_ = null;
-        addressBookBuilder_ = null;
+        addressBookBuilder_.clear();
       }
       return this;
     }
@@ -397,8 +410,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.example.tutorial.protos.GetAddressResponse buildPartial() {
       com.example.tutorial.protos.GetAddressResponse result = new com.example.tutorial.protos.GetAddressResponse(this);
+      int from_bitField0_ = bitField0_;
       result.status_ = status_;
       if (addressBookBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0)) {
+          addressBook_ = java.util.Collections.unmodifiableList(addressBook_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
         result.addressBook_ = addressBook_;
       } else {
         result.addressBook_ = addressBookBuilder_.build();
@@ -454,8 +472,31 @@ private static final long serialVersionUID = 0L;
       if (other.status_ != 0) {
         setStatusValue(other.getStatusValue());
       }
-      if (other.hasAddressBook()) {
-        mergeAddressBook(other.getAddressBook());
+      if (addressBookBuilder_ == null) {
+        if (!other.addressBook_.isEmpty()) {
+          if (addressBook_.isEmpty()) {
+            addressBook_ = other.addressBook_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureAddressBookIsMutable();
+            addressBook_.addAll(other.addressBook_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.addressBook_.isEmpty()) {
+          if (addressBookBuilder_.isEmpty()) {
+            addressBookBuilder_.dispose();
+            addressBookBuilder_ = null;
+            addressBook_ = other.addressBook_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+            addressBookBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getAddressBookFieldBuilder() : null;
+          } else {
+            addressBookBuilder_.addAllMessages(other.addressBook_);
+          }
+        }
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -485,6 +526,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private int status_ = 0;
     /**
@@ -540,118 +582,239 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.example.tutorial.protos.AddressBook addressBook_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.example.tutorial.protos.AddressBook, com.example.tutorial.protos.AddressBook.Builder, com.example.tutorial.protos.AddressBookOrBuilder> addressBookBuilder_;
-    /**
-     * <code>.tutorial.AddressBook addressBook = 2;</code>
-     * @return Whether the addressBook field is set.
-     */
-    public boolean hasAddressBook() {
-      return addressBookBuilder_ != null || addressBook_ != null;
+    private java.util.List<com.example.tutorial.protos.AddressBook> addressBook_ =
+      java.util.Collections.emptyList();
+    private void ensureAddressBookIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        addressBook_ = new java.util.ArrayList<com.example.tutorial.protos.AddressBook>(addressBook_);
+        bitField0_ |= 0x00000001;
+       }
     }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.example.tutorial.protos.AddressBook, com.example.tutorial.protos.AddressBook.Builder, com.example.tutorial.protos.AddressBookOrBuilder> addressBookBuilder_;
+
     /**
-     * <code>.tutorial.AddressBook addressBook = 2;</code>
-     * @return The addressBook.
+     * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
      */
-    public com.example.tutorial.protos.AddressBook getAddressBook() {
+    public java.util.List<com.example.tutorial.protos.AddressBook> getAddressBookList() {
       if (addressBookBuilder_ == null) {
-        return addressBook_ == null ? com.example.tutorial.protos.AddressBook.getDefaultInstance() : addressBook_;
+        return java.util.Collections.unmodifiableList(addressBook_);
       } else {
-        return addressBookBuilder_.getMessage();
+        return addressBookBuilder_.getMessageList();
       }
     }
     /**
-     * <code>.tutorial.AddressBook addressBook = 2;</code>
+     * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
      */
-    public Builder setAddressBook(com.example.tutorial.protos.AddressBook value) {
+    public int getAddressBookCount() {
+      if (addressBookBuilder_ == null) {
+        return addressBook_.size();
+      } else {
+        return addressBookBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
+     */
+    public com.example.tutorial.protos.AddressBook getAddressBook(int index) {
+      if (addressBookBuilder_ == null) {
+        return addressBook_.get(index);
+      } else {
+        return addressBookBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
+     */
+    public Builder setAddressBook(
+        int index, com.example.tutorial.protos.AddressBook value) {
       if (addressBookBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        addressBook_ = value;
+        ensureAddressBookIsMutable();
+        addressBook_.set(index, value);
         onChanged();
       } else {
-        addressBookBuilder_.setMessage(value);
+        addressBookBuilder_.setMessage(index, value);
       }
-
       return this;
     }
     /**
-     * <code>.tutorial.AddressBook addressBook = 2;</code>
+     * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
      */
     public Builder setAddressBook(
+        int index, com.example.tutorial.protos.AddressBook.Builder builderForValue) {
+      if (addressBookBuilder_ == null) {
+        ensureAddressBookIsMutable();
+        addressBook_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        addressBookBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
+     */
+    public Builder addAddressBook(com.example.tutorial.protos.AddressBook value) {
+      if (addressBookBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAddressBookIsMutable();
+        addressBook_.add(value);
+        onChanged();
+      } else {
+        addressBookBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
+     */
+    public Builder addAddressBook(
+        int index, com.example.tutorial.protos.AddressBook value) {
+      if (addressBookBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAddressBookIsMutable();
+        addressBook_.add(index, value);
+        onChanged();
+      } else {
+        addressBookBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
+     */
+    public Builder addAddressBook(
         com.example.tutorial.protos.AddressBook.Builder builderForValue) {
       if (addressBookBuilder_ == null) {
-        addressBook_ = builderForValue.build();
+        ensureAddressBookIsMutable();
+        addressBook_.add(builderForValue.build());
         onChanged();
       } else {
-        addressBookBuilder_.setMessage(builderForValue.build());
+        addressBookBuilder_.addMessage(builderForValue.build());
       }
-
       return this;
     }
     /**
-     * <code>.tutorial.AddressBook addressBook = 2;</code>
+     * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
      */
-    public Builder mergeAddressBook(com.example.tutorial.protos.AddressBook value) {
+    public Builder addAddressBook(
+        int index, com.example.tutorial.protos.AddressBook.Builder builderForValue) {
       if (addressBookBuilder_ == null) {
-        if (addressBook_ != null) {
-          addressBook_ =
-            com.example.tutorial.protos.AddressBook.newBuilder(addressBook_).mergeFrom(value).buildPartial();
-        } else {
-          addressBook_ = value;
-        }
+        ensureAddressBookIsMutable();
+        addressBook_.add(index, builderForValue.build());
         onChanged();
       } else {
-        addressBookBuilder_.mergeFrom(value);
+        addressBookBuilder_.addMessage(index, builderForValue.build());
       }
-
       return this;
     }
     /**
-     * <code>.tutorial.AddressBook addressBook = 2;</code>
+     * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
+     */
+    public Builder addAllAddressBook(
+        java.lang.Iterable<? extends com.example.tutorial.protos.AddressBook> values) {
+      if (addressBookBuilder_ == null) {
+        ensureAddressBookIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, addressBook_);
+        onChanged();
+      } else {
+        addressBookBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
      */
     public Builder clearAddressBook() {
       if (addressBookBuilder_ == null) {
-        addressBook_ = null;
+        addressBook_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
       } else {
-        addressBook_ = null;
-        addressBookBuilder_ = null;
+        addressBookBuilder_.clear();
       }
-
       return this;
     }
     /**
-     * <code>.tutorial.AddressBook addressBook = 2;</code>
+     * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
      */
-    public com.example.tutorial.protos.AddressBook.Builder getAddressBookBuilder() {
-      
-      onChanged();
-      return getAddressBookFieldBuilder().getBuilder();
+    public Builder removeAddressBook(int index) {
+      if (addressBookBuilder_ == null) {
+        ensureAddressBookIsMutable();
+        addressBook_.remove(index);
+        onChanged();
+      } else {
+        addressBookBuilder_.remove(index);
+      }
+      return this;
     }
     /**
-     * <code>.tutorial.AddressBook addressBook = 2;</code>
+     * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
      */
-    public com.example.tutorial.protos.AddressBookOrBuilder getAddressBookOrBuilder() {
-      if (addressBookBuilder_ != null) {
-        return addressBookBuilder_.getMessageOrBuilder();
-      } else {
-        return addressBook_ == null ?
-            com.example.tutorial.protos.AddressBook.getDefaultInstance() : addressBook_;
+    public com.example.tutorial.protos.AddressBook.Builder getAddressBookBuilder(
+        int index) {
+      return getAddressBookFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
+     */
+    public com.example.tutorial.protos.AddressBookOrBuilder getAddressBookOrBuilder(
+        int index) {
+      if (addressBookBuilder_ == null) {
+        return addressBook_.get(index);  } else {
+        return addressBookBuilder_.getMessageOrBuilder(index);
       }
     }
     /**
-     * <code>.tutorial.AddressBook addressBook = 2;</code>
+     * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
      */
-    private com.google.protobuf.SingleFieldBuilderV3<
+    public java.util.List<? extends com.example.tutorial.protos.AddressBookOrBuilder> 
+         getAddressBookOrBuilderList() {
+      if (addressBookBuilder_ != null) {
+        return addressBookBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(addressBook_);
+      }
+    }
+    /**
+     * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
+     */
+    public com.example.tutorial.protos.AddressBook.Builder addAddressBookBuilder() {
+      return getAddressBookFieldBuilder().addBuilder(
+          com.example.tutorial.protos.AddressBook.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
+     */
+    public com.example.tutorial.protos.AddressBook.Builder addAddressBookBuilder(
+        int index) {
+      return getAddressBookFieldBuilder().addBuilder(
+          index, com.example.tutorial.protos.AddressBook.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .tutorial.AddressBook addressBook = 2;</code>
+     */
+    public java.util.List<com.example.tutorial.protos.AddressBook.Builder> 
+         getAddressBookBuilderList() {
+      return getAddressBookFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
         com.example.tutorial.protos.AddressBook, com.example.tutorial.protos.AddressBook.Builder, com.example.tutorial.protos.AddressBookOrBuilder> 
         getAddressBookFieldBuilder() {
       if (addressBookBuilder_ == null) {
-        addressBookBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+        addressBookBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.example.tutorial.protos.AddressBook, com.example.tutorial.protos.AddressBook.Builder, com.example.tutorial.protos.AddressBookOrBuilder>(
-                getAddressBook(),
+                addressBook_,
+                ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),
                 isClean());
         addressBook_ = null;
